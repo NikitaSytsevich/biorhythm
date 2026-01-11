@@ -1,0 +1,56 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Мистический фон (Deep Space) -->
+    <linearGradient id="bg_grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3E2C6A"/> <!-- Светлый Индиго сверху -->
+      <stop offset="1" stop-color="#0F0A1A"/> <!-- Почти черный снизу -->
+    </linearGradient>
+
+    <!-- Градиент Души (Coral to Violet) -->
+    <linearGradient id="soul_grad" x1="100" y1="400" x2="400" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF9F8E"/> <!-- Coral -->
+      <stop offset="0.5" stop-color="#D946EF"/> <!-- Fuchsia -->
+      <stop offset="1" stop-color="#818CF8"/> <!-- Indigo -->
+    </linearGradient>
+
+    <!-- Внутреннее свечение (Glass Effect) -->
+    <filter id="inner_glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dx="0" dy="0" result="offsetblur"/>
+      <feFlood flood-color="white" flood-opacity="0.3"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feComposite in2="SourceAlpha" operator="in" />
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Основа (Квадрат, iOS сам его скруглит) -->
+  <rect width="512" height="512" fill="url(#bg_grad)"/>
+  
+  <!-- Декоративный шум (звезды) -->
+  <circle cx="100" cy="100" r="2" fill="white" fill-opacity="0.3"/>
+  <circle cx="400" cy="80" r="3" fill="white" fill-opacity="0.2"/>
+  <circle cx="50" cy="400" r="2" fill="white" fill-opacity="0.1"/>
+  <circle cx="450" cy="450" r="4" fill="#FF9F8E" fill-opacity="0.2"/>
+
+  <!-- ЛОТОС (Центральная фигура) -->
+  <g filter="url(#inner_glow)" transform="translate(256, 280) scale(1.1)">
+    <!-- Левый лепесток -->
+    <path d="M-80,20 Q-120,-60 -80,-140 Q-40,-60 0,0 Q-40,60 -80,20 Z" 
+          fill="url(#soul_grad)" opacity="0.8" transform="rotate(-30)"/>
+          
+    <!-- Правый лепесток -->
+    <path d="M80,20 Q120,-60 80,-140 Q40,-60 0,0 Q40,60 80,20 Z" 
+          fill="url(#soul_grad)" opacity="0.8" transform="rotate(30)"/>
+          
+    <!-- Центральный лепесток (Самый яркий) -->
+    <path d="M0,40 Q-50,-40 0,-180 Q50,-40 0,40 Z" 
+          fill="url(#soul_grad)"/>
+          
+    <!-- Ядро (Сфера) -->
+    <circle cx="0" cy="-20" r="15" fill="white"/>
+  </g>
+</svg>
